@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRINETRIX EDITS | Professional Video Portfolio</title>
+    <!-- Trendy Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- THEME & BACKGROUND --- */
+        :root {
+            --gold: #FFD700;
+            --gold-dark: #B8860B;
+            --bg-color: #0d0d0d;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 215, 0, 0.3);
+            --glow: 0 0 15px rgba(255, 215, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(255, 215, 0, 0.05), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.02), transparent 25%);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Elements */
+        .bg-elements {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.2;
+        }
+        .float-icon {
+            position: absolute;
+            font-size: 3rem;
+            animation: float 10s infinite ease-in-out alternate;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        /* --- HEADER & LOGO --- */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .main-logo {
+            width: 250px;
+            border-radius: 50%;
+            box-shadow: var(--glow);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        .main-logo:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            margin: 0;
+            color: var(--gold);
+            text-shadow: var(--glow);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* --- ABOUT SECTION (Editable) --- */
+        .about-section {
+            max-width: 800px;
+            margin: 20px auto 50px;
+            text-align: center;
+            padding: 20px;
+            /* Apple Glass Effect */
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* --- VIDEO PORTFOLIO SECTION --- */
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .video-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: var(--glow);
+            border-color: var(--gold);
+        }
+        .video-thumbnail {
+            width: 100%;
+            height: 180px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            background-color: #222;
+        }
+        .watch-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: linear-gradient(45deg, var(--gold-dark), var(--gold));
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            transition: 0.3s;
+        }
+        .watch-btn:hover {
+            box-shadow: 0 0 15px var(--gold);
+        }
+
+        /* --- CONTACT (Email & IG) WITH APPLE GLASS & BOUNCE --- */
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 60px 0 80px;
+        }
+        
+        .contact-card {
+            /* Apple Glass Effect */
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            padding: 20px 40px;
+            border-radius: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            
+            /* Bounce & Glow Transition */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+            border-color: var(--gold);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        /* Surprise Pop Animation on Click */
+        .surprise-click {
+            animation: surprise-pop 0.6s cubic-bezier(0.25, 1.5, 0.5, 1) forwards;
+        }
+        
+        @keyframes surprise-pop {
+            0% { transform: scale(1); box-shadow: 0 0 0 rgba(255, 215, 0, 0); }
+            40% { transform: scale(1.2) rotate(3deg); box-shadow: 0 0 50px rgba(255, 215, 0, 1); background: rgba(255, 215, 0, 0.3); }
+            70% { transform: scale(0.9) rotate(-3deg); }
+            100% { transform: scale(1) rotate(0deg); box-shadow: 0 0 25px rgba(255, 215, 0, 0.6); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Background Editing Themes -->
+    <div class="bg-elements">
+        <div class="float-icon" style="top: 10%; left: 10%; color: #9999ff;">Ae</div>
+        <div class="float-icon" style="top: 70%; left: 80%; color: #ff99ff;">Pr</div>
+        <div class="float-icon" style="top: 40%; left: 85%;">🎬</div>
+        <div class="float-icon" style="top: 80%; left: 15%;">🎨</div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <img src="DP.png" alt="Trinetrix Edits Logo" class="main-logo">
+        <h1>TRINETRIX EDITS</h1>
+    </header>
+
+    <!-- EDITABLE ABOUT SECTION -->
+    <div class="about-section">
+        <p>[Write about your editing style here. Example: I specialize in high-retention YouTube editing, cinematic color grading, and dynamic motion graphics. Let's make your content stand out.]</p>
+    </div>
+
+    <!-- VIDEO SECTION -->
+    <div class="portfolio-container">
+        <h2 class="section-title">MY WORK</h2>
+        <div class="video-grid">
+            <!-- VIDEO CARDS -->
+            <div class="video-card">
+                <img src="https://via.placeholder.com/400x225/222/FFD700?text=Thumbnail+1" alt="Video Thumbnail" class="video-thumbnail">
+                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="watch-btn">Watch Video</a>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/400x225/222/FFD700?text=Thumbnail+2" alt="Video Thumbnail" class="video-thumbnail">
+                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="watch-btn">Watch Video</a>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/400x225/222/FFD700?text=Thumbnail+3" alt="Video Thumbnail" class="video-thumbnail">
+                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="watch-btn">Watch Video</a>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/400x225/222/FFD700?text=Thumbnail+4" alt="Video Thumbnail" class="video-thumbnail">
+                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="watch-btn">Watch Video</a>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/400x225/222/FFD700?text=Thumbnail+5" alt="Video Thumbnail" class="video-thumbnail">
+                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="watch-btn">Watch Video</a>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/400x225/222/FFD700?text=Thumbnail+6" alt="Video Thumbnail" class="video-thumbnail">
+                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="watch-btn">Watch Video</a>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/400x225/222/FFD700?text=Thumbnail+7" alt="Video Thumbnail" class="video-thumbnail">
+                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="watch-btn">Watch Video</a>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/400x225/222/FFD700?text=Thumbnail+8" alt="Video Thumbnail" class="video-thumbnail">
+                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="watch-btn">Watch Video</a>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/400x225/222/FFD700?text=Thumbnail+9" alt="Video Thumbnail" class="video-thumbnail">
+                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="watch-btn">Watch Video</a>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/400x225/222/FFD700?text=Thumbnail+10" alt="Video Thumbnail" class="video-thumbnail">
+                <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank" class="watch-btn">Watch Video</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <div class="contact-container">
+        
+        <!-- EMAIL BUTTON (Pre-filled with your email, opens Mail app) -->
+        <a href="mailto:rounakeditzz@gmail.com" class="contact-card" onclick="triggerSurprise(event, this)">
+            ✉️ rounakeditzz@gmail.com
+        </a>
+        
+        <!-- INSTAGRAM BUTTON (Link space left for future update) -->
+        <a href="YOUR_INSTAGRAM_LINK_HERE" target="_blank" class="contact-card" onclick="triggerSurprise(event, this)">
+            📸 @YourInstagramID
+        </a>
+        
+    </div>
+
+    <!-- JAVASCRIPT FOR SURPRISE EFFECTS -->
+    <script>
+        function triggerSurprise(event, element) {
+            // Prevent immediate navigation so the animation can play
+            event.preventDefault();
+            
+            // Remove the class if it exists to reset
+            element.classList.remove('surprise-click');
+            
+            // Trigger reflow
+            void element.offsetWidth;
+            
+            // Add the animation class
+            element.classList.add('surprise-click');
+            
+            // Wait for the animation to finish (600ms) before navigating
+            setTimeout(() => {
+                if (element.target === "_blank") {
+                    window.open(element.href, '_blank');
+                } else {
+                    window.location.href = element.href;
+                }
+            }, 600);
+        }
+    </script>
+</body>
+</html>
